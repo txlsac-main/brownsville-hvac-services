@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,47 +6,442 @@
     <title>Brownsville HVAC Services – Texas Lone Star AC & Heating LLC</title>
     <meta name="description" content="Trusted HVAC services in Brownsville, TX by Texas Lone Star AC & Heating LLC. Explore heating and cooling solutions tailored for your comfort.">
     <link rel="canonical" href="https://brownsville-hvac-services.vercel.app/">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: linear-gradient(135deg, #041f3b 0%, #ca130f 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            max-width: 800px;
-            line-height: 1.6;
-            color: #333;
+            padding: 0 20px;
         }
-        .cta {
-            background-color: #f7f7f7;
-            padding: 20px;
+
+        /* Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 80px 0 60px;
             text-align: center;
-            margin-top: 30px;
-            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
         }
-        img {
-            max-width: 100%;
-            height: auto;
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(202, 19, 15, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(4, 31, 59, 0.1) 0%, transparent 50%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #041f3b, #ca130f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .featured-img {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            margin: 30px auto;
             display: block;
-            margin: 0 auto 20px;
+            transition: transform 0.3s ease;
+            border: 3px solid #ffffff;
+            filter: brightness(1.1) contrast(1.1);
         }
-        h1 {
-            font-size: 1.8rem;
+
+        .featured-img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Content */
+        .content {
+            background: white;
+            margin: -40px auto 0;
+            border-radius: 30px 30px 0 0;
+            padding: 60px 0;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .blog-post p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .blog-post h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin: 40px 0 24px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .blog-post h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(135deg, #041f3b, #ca130f);
+            border-radius: 2px;
+        }
+
+        .blog-post ul {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #ca130f;
+        }
+
+        .blog-post li {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #4a5568;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .blog-post li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ca130f;
+            font-weight: bold;
+        }
+
+        .blog-post strong {
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #041f3b, #ca130f);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            margin: 50px 0;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(202, 19, 15, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta p, .cta strong {
+            color: white !important;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="90" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #041f3b !important;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: #f8fafc;
+        }
+
+        .cta a i {
+            font-size: 1.2rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .service-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ca130f;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item i {
+            color: #041f3b;
+            font-size: 1.5rem;
             margin-bottom: 10px;
+        }
+
+        .service-item h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #1a202c;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .service-item p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #041f3b;
+            color: #a0aec0;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        .footer-brand {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-img {
+                height: 250px;
+                border-radius: 15px;
+            }
+
+            .blog-post {
+                padding: 0 20px;
+            }
+
+            .blog-post h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta {
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+
+            .cta p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header h1 {
+                font-size: 2rem;
+            }
+
+            .main-header {
+                padding: 60px 0 40px;
+            }
+
+            .content {
+                padding: 40px 0;
+            }
+
+            .blog-post h2 {
+                font-size: 1.5rem;
+            }
+
+            .blog-post p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .blog-post > * {
+                animation: fadeInUp 0.8s ease-out;
+                animation-fill-mode: both;
+            }
+
+            .blog-post > *:nth-child(1) { animation-delay: 0.1s; }
+            .blog-post > *:nth-child(2) { animation-delay: 0.2s; }
+            .blog-post > *:nth-child(3) { animation-delay: 0.3s; }
+            .blog-post > *:nth-child(4) { animation-delay: 0.4s; }
+            .blog-post > *:nth-child(5) { animation-delay: 0.5s; }
+            .blog-post > *:nth-child(6) { animation-delay: 0.6s; }
         }
     </style>
 </head>
 <body>
-    <article class="blog-post">
-        <img src="https://raw.githubusercontent.com/txlsac-main/brownsville-hvac-services/refs/heads/main/acte.avif" alt="HVAC Services in Brownsville TX" class="featured-img">
-        <h1>Expert HVAC Services in Brownsville, TX</h1>
-        <p>At Texas Lone Star AC & Heating LLC, we proudly deliver top-tier HVAC services to residents and businesses across Brownsville, TX. From fast AC repairs to full system installations, our technicians bring decades of combined experience to every job.</p>
-        <p>Whether you’re battling Texas heat or prepping for cooler months, our team ensures your indoor comfort year-round. We specialize in energy-efficient upgrades, ductwork solutions, smart thermostat setups, and more.</p>
-        <p>Choose a local HVAC contractor you can trust — committed to integrity, speed, and satisfaction.</p>
-
-        <div class="cta">
-            <p><strong>Explore our full range of HVAC services today.</strong></p>
-            <a href="https://sites.google.com/view/texaslonestar-ac-brownsville" target="_blank">Visit Our Google Site</a>
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Expert HVAC Services in Brownsville, TX</h1>
+                <img class="featured-img" src="https://raw.githubusercontent.com/txlsac-main/brownsville-hvac-services/refs/heads/main/acte.avif" alt="HVAC Services in Brownsville TX">
+            </div>
         </div>
-    </article>
+    </header>
+
+    <div class="content">
+        <article class="blog-post">
+            <p>At <strong>Texas Lone Star AC & Heating LLC</strong>, we proudly deliver top-tier <strong>HVAC services</strong> to residents and businesses across Brownsville, TX. From fast AC repairs to full system installations, our technicians bring decades of combined experience to every job.</p>
+
+            <p>Whether you're battling Texas heat or prepping for cooler months, our team ensures your indoor comfort year-round. We specialize in energy-efficient upgrades, ductwork solutions, smart thermostat setups, and more.</p>
+
+            <h2>Our Complete HVAC Services</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-wrench"></i>
+                    <h3>AC Repair & Maintenance</h3>
+                    <p>Fast, reliable repairs and preventive maintenance for all AC brands and models.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h3>Heating Solutions</h3>
+                    <p>Complete heating system installation, repair, and maintenance services.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-home"></i>
+                    <h3>System Installation</h3>
+                    <p>New HVAC system design and installation for residential and commercial properties.</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Ductwork Services</h3>
+                    <p>Professional ductwork installation, repair, and cleaning for optimal airflow.</p>
+                </div>
+            </div>
+
+            <p>Choose a local HVAC contractor you can trust — committed to integrity, speed, and satisfaction. Our certified technicians ensure your comfort with transparent pricing and honest recommendations.</p>
+
+            <div class="cta">
+                <div class="cta-content">
+                    <p><strong>Explore our full range of HVAC services today.</strong></p>
+                    <a href="https://sites.google.com/view/texaslonestar-ac-brownsville" target="_blank" rel="noopener">
+                        <i class="fas fa-external-link-alt"></i>
+                        Visit Our Google Site
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">Texas Lone Star AC & Heating LLC</div>
+            <p>&copy; 2025 Texas Lone Star AC & Heating LLC – Brownsville, TX</p>
+        </div>
+    </footer>
 
     <script type="application/ld+json">
     {
@@ -55,17 +449,8 @@
       "@type": "WebPage",
       "name": "HVAC Services in Brownsville, TX",
       "description": "Top-rated HVAC contractor offering air conditioning, heating, and ventilation services in Brownsville, TX.",
-      "datePublished": "June 11, 2025",
-      "mainEntity": {
-        "@type": "LocalBusiness",
-        "name": "Texas Lone Star AC & Heating LLC",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Brownsville",
-          "addressRegion": "TX",
-          "addressCountry": "US"
-        }
-      }
+      "url": "https://brownsville-hvac-services.vercel.app/",
+      "datePublished": "June 11, 2025"
     }
     </script>
 </body>
